@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title></title>
+    <style type="text/css" media="all">
+      #jogo{
+        border: 3px solid gray;
+        image-rendering: pixelated;
+        image-rendering: crisp-edge;
+        image-rendering: -moz-crisp-edge;
+        width: 300px;
+        height: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="jogo" width="10px" height="10px"></canvas>
+    <script type="text/javascript" charset="utf-8">
+      const jogo= document.getElementById('jogo')
+      const context= jogo.getContext('2d')
+      
+      const game= {
+        players: {
+          'player1': {x= 2, y= 2}
+          'player2': {x= 7, y= 5}
+        }
+        fruits: {
+          'fruit1': {x= 5, y= 3}
+        }
+      }
+      
+      renderScream()
+      
+      Function renderScream(){
+        for (playerId in game.players) {
+          const player= game.players[playerId]
+          context.fillStyle = 'black'
+          context.fillRect(player.x, player.y, 1, 1)
+        }
+        for (fruitId in game.fruits){
+          const fruit= game.fruits[fruitId]
+          context.fillStyle = 'green'
+          context.fillRect(fruit.x, fruit.y, 1, 1)
+        }
+      }
+      
+    </script>
+  </body>
+</html>
