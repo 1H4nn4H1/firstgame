@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        #canvas{
+            height: 300px;
+            width: 300px;
+            image-rendering: pixelated;
+            image-rendering: crisp-edges;
+            image-rendering: -moz-crisp-edges;
+            border: 2px solid blue;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" height="10px" width="10px"></canvas>
+    <section id="movimentos">
+        <button id="up" value="1">up</button>
+        <button id="right" value="2">right</button>
+        <button id="down" value="3">down</button>
+        <button id="left" value="4">left</button>
+    </section>
+    <script type="module">
+        import creatKeyBoardListerner from './keyBoardListener.js'
+        import createGame from './game.js'
+        import renderScreen from './renderScreen.js'
+
+        const screen = document.getElementById('canvas')
+        renderScreen.subscribe(game.movePlayer)
+        
+        const game = createGame()
+        const keyBoardListerner = creatKeyBoardListerner()
+        keyBoardListerner.subscribe(game.movePlayer)
+
+        game.addPlayers({playerId: 'player1', playerX: 3, playerY: 8})
+
+        renderScreen()
+        
+
+    </script>
+</body>
+</html>

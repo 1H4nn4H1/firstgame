@@ -1,0 +1,11 @@
+{
+    "name": "game",
+    "description": "description",
+    "author": "natsuHanna",
+    "version": "1.0.0",
+    "main": "server.js",
+    "type": "module",
+    "dependencies": {
+        "express": "^4.18.1"
+    }
+}
